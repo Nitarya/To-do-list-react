@@ -3,14 +3,14 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [inputList, setInputList] = useState("buy apple");
+  const [Items, setItems] = useState([]);
 
-const [inputList, setInputList] = useState("buy apple")
+  const itemEvent = (event) => {
+    setInputList(event.target.value);
+  };
 
-const itemEvent = (event) => {
-setInputList(event.target.value)
-}
-
-
+  const listOfItems = () => {};
   return (
     <>
       <div className="main_div">
@@ -19,10 +19,13 @@ setInputList(event.target.value)
           <h1>ToDo List</h1>
           <br />
           <input type="text" placeholder="Add a Items" onChange={itemEvent} />
-          <button> + </button>
+          <button onClick={listOfItems}> + </button>
 
           <ol>
-            <li> {inputList} </li>
+            {/* <li> {inputList} </li> */}
+            {Items.map( (itemVal) => {
+              return <li>{itemVal}</li>
+            })}
           </ol>
         </div>
       </div>
