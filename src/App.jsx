@@ -10,7 +10,11 @@ function App() {
     setInputList(event.target.value);
   };
 
-  const listOfItems = () => {};
+  const listOfItems = () => {
+    setItems((oldItems) => {
+      return [...oldItems, inputList]
+    })
+  };
   return (
     <>
       <div className="main_div">
