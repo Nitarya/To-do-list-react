@@ -17,6 +17,14 @@ function App() {
     });
     setInputList("");
   };
+
+const removeItem = (itemToRemove) => {
+  const remainingItems = Items.filter((val) => {
+    return val !== itemToRemove
+  })
+  setItems(remainingItems)
+} 
+
   return (
     <>
       <div className="main_div">
@@ -35,7 +43,7 @@ function App() {
           <ol>
             {/* <li> {inputList} </li> */}
             {Items.map((itemVal) => {
-            return <ToDoLists text={itemVal} />;
+            return <ToDoLists text={itemVal} removeHandler={removeItem}/>;
             })}
           </ol>
         </div>

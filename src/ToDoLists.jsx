@@ -5,7 +5,9 @@ const ToDoLists = (props) => {
         <>
         <div className="todo_style">
             
-        <li> {props.text} </li>
+        <li onClick={() => {
+          props.removeHandler(props.text)
+        }}> {props.text} </li>
         </div>
         
         </>
